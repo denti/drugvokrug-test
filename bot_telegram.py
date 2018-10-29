@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 USERS_DICT, USERS_SORTED = {}, []
 
 
-# Main handlers
+######################## Main handlers ########################
 def start(bot, update):
     update.message.reply_text(
         'Привет, я тестовый бот. Используйте одну из команд для управления списком пользователей: ["/save", "/list", "/del" ]')
@@ -32,7 +32,7 @@ def error(bot, update, error):
     logger.warning('При попытке выполнить комадну "%s" произошла ошибка "%s"', update, error)
 
 
-# Action handlers
+######################## Action handlers ########################
 def save(bot, update, args):
     global USERS_DICT, USERS_SORTED
     print('SAVE')
@@ -75,6 +75,7 @@ def delete(bot, update, args):
         update.message.reply_text('Пользователь не найден')
 
 
+######################## Additional Functions ########################
 def array_sort(arr):
     """
     Merge sort
@@ -94,6 +95,7 @@ def array_sort(arr):
     return arr1 + arr2 + new_arr
 
 
+######################## Main ########################
 def main():
     # Create the EventHandler and pass it your bot's token.
     updater = Updater(os.environ['API_TELEGRAM_TOKEN'])

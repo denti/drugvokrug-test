@@ -1,0 +1,9 @@
+version: '2'
+services:
+  bot:
+    build: ./dockerfiles/app
+    volumes:
+     - .:/code
+    command: "python /code/bot_telegram.py"
+    environment:
+     - API_TELEGRAM_TOKEN=730638156:AAGjoDoVwK486HaqXUey8si8A1cZig1DAIc
